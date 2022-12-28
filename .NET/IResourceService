@@ -1,0 +1,19 @@
+using Sabio.Models;
+using Sabio.Models.Domain.Resouces;
+using Sabio.Models.Requests.Resources;
+using System.Collections.Generic;
+
+namespace Sabio.Services.Interfaces
+{
+    public interface IResourceService
+    {
+        int Add(ResourceAddRequest model);
+        void Delete(int id);
+        Resource GetById(int id);
+        Paged<Resource> GetByLocationType(int pageIndex, int pageSize, int locationTypeId);
+        Paged<Resource> GetByResourceType(int pageIndex, int pageSize, int resourceCategoryId);
+        Paged<Resource> SearchDetails(int pageIndex, int pageSize, string query);
+        void Update(ResourceUpdateRequest model);
+        Paged<Resource> GetAll(int pageIndex, int pageSize);
+    }
+}
