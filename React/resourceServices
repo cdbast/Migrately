@@ -1,0 +1,90 @@
+import axios from "axios"
+import { onGlobalSuccess, onGlobalError } from "./serviceHelpers";
+
+const resourceService = {};
+resourceService.endpoint = "/api/resources"
+
+resourceService.getAll = (pageIndex, pageSize) => {
+    const config = {
+        method: "GET",
+        url: resourceService.endpoint + `?pageIndex=${pageIndex}&pageSize=${pageSize}`,
+        crossdomain: true,
+        headers: {"Content-Type": "application/json"}
+    }
+    return axios (config, onGlobalSuccess, onGlobalError)
+}
+
+resourceService.getById = (id) => {
+    const config = {
+        method: "GET",
+        url: resourceService.endpoint + `/${id}`,
+        crossdomain: true,
+        headers: {"Content-Type": "application/json"}
+    }
+    return axios (config, onGlobalSuccess, onGlobalError)
+}
+
+resourceService.getByResourceType = (pageIndex, pageSize, id) => {
+    const config = {
+        method: "GET",
+        url: resourceService.endpoint + `/resourcetypes?pageIndex=${pageIndex}&pageSize=${pageSize}&resourceCategoryId=${id}`,
+        crossdomain: true,
+        headers: {"Content-Type": "application/json"}
+    }
+    return axios (config, onGlobalSuccess, onGlobalError)
+}
+
+resourceService.getByLocationType = (pageIndex, pageSize, id) => {
+    const config = {
+        method: "GET",
+        url: resourceService.endpoint + `/locationtypes?pageIndex=${pageIndex}&pageSize=${pageSize}&LocationTypeId=${id}`,
+        crossdomain: true,
+        headers: {"Content-Type": "application/json"}
+    }
+    return axios (config, onGlobalSuccess, onGlobalError)
+}
+
+resourceService.getBySearchDetails = (pageIndex, pageSize, query) => {
+    const config = {
+        method: "GET",
+        url: resourceService.endpoint + `/search?pageIndex=${pageIndex}&pageSize=${pageSize}&query=${query}`,
+        crossdomain: true,
+        headers: {"Content-Type": "application/json"}
+    }
+    return axios (config, onGlobalSuccess, onGlobalError)
+}
+
+resourceService.add = (payload) => {
+    const config = {
+        method: "POST",
+        url: resourceService.endpoint,
+        data: payload,
+        crossdomain: true,
+        headers: {"Content-Type": "application/json"}
+    }
+    return axios (config, onGlobalSuccess, onGlobalError)
+}
+
+resourceService.update = (id, payload) => {
+    const config = {
+        method: "PUT",
+        url: resourceService.endpoint + `/${id}`,
+        data: payload,
+        crossdomain: true,
+        headers: {"Content-Type": "application/json"}
+    }
+    return axios (config, onGlobalSuccess, onGlobalError)
+}
+
+resourceService.delete = (id, payload) => {
+    const config = {
+        method: "POST",
+        url: resourceService.endpoint + `/${id}`,
+        data: payload,
+        crossdomain: true,
+        headers: {"Content-Type": "application/json"}
+    }
+    return axios (config, onGlobalSuccess, onGlobalError)
+}
+
+export default resourceService
