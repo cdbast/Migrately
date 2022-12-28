@@ -1,0 +1,100 @@
+USE [Migrately]
+GO
+/****** Object:  StoredProcedure [dbo].[Resources_Insert]    Script Date: 12/28/2022 10:26:27 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- =============================================
+-- Author: <Chris Bast>
+-- Create date: <11/17/22>
+-- Description: <Insert Resource>
+-- Code Reviewer: Sam Mcgill
+
+-- MODIFIED BY: author
+-- MODIFIED DATE:12/1/2020
+-- Code Reviewer:
+-- Note:
+-- =============================================
+
+ALTER proc [dbo].[Resources_Insert]
+			@ResourceCategoryId int
+           ,@Name nvarchar(200)
+           ,@Description nvarchar(1000)
+           ,@Logo nvarchar(255)
+		   ,@locationId int
+           ,@ContactName nvarchar(200)
+           ,@ContactEmail nvarchar(255)
+           ,@Phone nvarchar(50)
+           ,@SiteUrl nvarchar(255)
+		   ,@Id int OUTPUT
+
+/*
+
+Declare @Id int = 0
+Declare @ResourceCategoryId int = 1
+		,@Name nvarchar(200) = 'name test'
+        ,@Description nvarchar(1000) = 'description test'
+        ,@Logo nvarchar(255) = 'logo test'
+        ,@ContactName nvarchar(200) = 'contactname test'
+        ,@ContactEmail nvarchar(255) = 'contactemail test'
+        ,@Phone nvarchar(50) = 'phone test'
+        ,@SiteUrl nvarchar(255) = 'url test'
+
+
+Execute dbo.Resources_Insert
+		@ResourceCategoryId
+        ,@Name
+        ,@Description
+        ,@Logo
+        ,@ContactName
+        ,@ContactEmail
+        ,@Phone
+        ,@SiteUrl
+		,@Id OUTPUT
+
+Select @Id
+
+Select *
+From dbo.Resources
+Where Id = @Id
+
+Select * 
+From dbo.ResourceCategories
+Where Id = @Id
+
+Select * 
+From dbo.Locations
+Where Id = @Id
+*/
+
+as
+
+BEGIN
+
+INSERT INTO [dbo].[Resources]
+           ([ResourceCategoryId]
+           ,[Name]
+           ,[Description]
+           ,[Logo]
+		   ,[LocationId]
+           ,[ContactName]
+           ,[ContactEmail]
+           ,[Phone]
+           ,[SiteUrl])
+     VALUES
+           (@ResourceCategoryId
+           ,@Name
+           ,@Description
+           ,@Logo
+		   ,@locationId
+           ,@ContactName
+           ,@ContactEmail
+           ,@Phone
+           ,@SiteUrl)
+
+		   SET @Id = SCOPE_IDENTITY()
+END
+
+
