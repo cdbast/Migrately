@@ -1,0 +1,75 @@
+.resourceCard{
+    text-align: center;
+    margin: 50px;
+    width: 20rem;
+    height: 30rem;
+}
+
+.resourceNavTab{
+    padding: 0px 25px;
+}
+
+.resource-form-error{
+    color: red;
+    position: absolute;
+    margin-left: 165px;
+    padding: 25px;
+}
+.resource-form-error-address{
+    color: red;
+    position: absolute;
+    margin-left: 75px;
+    padding: 25px;
+}
+
+.resource-form-select{
+    width: 50%;
+}
+
+.resource-form-title{
+    text-align: center;
+}
+
+.resource-form-button{
+    padding-block: 10px 20px;
+}
+
+.resource-form-label{
+    font-size: large;
+    padding-top: 20px;
+}
+
+.resources-pagination{
+    padding-right: 200px
+}
+
+.resource-form-desc{
+    height: 100px
+}
+
+.card-title{
+    font-size: x-large;
+}
+
+.card-subtitle{
+    font-size: small;
+    font-weight: bold;
+}
+
+.resource-address{
+    margin-bottom: 0px;
+}
+
+.resourcePageSize{
+    padding: 0px 25px;
+}
+
+.resourceSearch{
+    padding: 0px 25px;
+}
+
+.location-type-error{
+    font-size: x-large;
+    font: bold;
+    margin: 17rem;
+}
